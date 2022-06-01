@@ -129,6 +129,7 @@
         img{
             margin-left: 0px;
             margin-bottom: 0px;
+            width: 115px;
         }
 
         #fp {
@@ -143,7 +144,7 @@
 <body>
     <header>
         <div>
-            <img src="img/logotech_2.jpg" alt="logo">
+            <img src="storage/logo/logo.png" alt="logo">
         </div>
         <div>
             <table id="datos">

@@ -123,6 +123,7 @@
 
         img{
             margin-left: 0%;
+            width: 115px;
         }
 
 
@@ -131,7 +132,7 @@
 <body>
     <header>
         <div>
-            <img src="img/logotech_2.jpg" alt="logo">
+            <img src="storage/logo/logo.png" alt="logo">
         </div>
         <div>
             <table id="datos">
