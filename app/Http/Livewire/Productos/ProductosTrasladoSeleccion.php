@@ -69,6 +69,15 @@ class ProductosTrasladoSeleccion extends Component
 
     public function render()
     {
+        $this->sucursales = Sucursal::where('id', '!=', $this->sucursal)->get();
+
+        $pivot = Pivot::where('sucursal_id',$this->sucursal)
+                        ->where('producto_id',$this->producto->id)
+                        ->first();
+       // dd($this->sucursal);
+
+        $this->quantity = $pivot->cantidad;
+        
         return view('livewire.productos.productos-traslado-seleccion');
     }
 
@@ -142,7 +151,7 @@ class ProductosTrasladoSeleccion extends Component
 
         }
         
-    $this->reset('sucursal_id','qty');
+    $this->reset('sucursal_id','qty','quantity');
     $this->isopen = false;
     $this->emitTo('productos.productos-detalle-traslado','render');
     $this->emitTo('productos.productos-traslado-pendientes','render');

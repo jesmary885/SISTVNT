@@ -56,7 +56,7 @@
                         <div class="modal-footer flex">
                             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal" wire:click="close" >Cerrar</button>
                             <x-button
-                                x-bind:disabled="$wire.qty > $wire.quantity || $wire.qty < 1"
+                                x-bind:disabled="$wire.qty > $wire.quantity || $wire.qty < 1 || $wire.quantity < 1"
                                 wire:click="addItem"
                                 wire:loading.attr="disabled"
                                 wire:loading.attr="disabled"
