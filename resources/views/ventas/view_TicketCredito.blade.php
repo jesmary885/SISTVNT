@@ -91,7 +91,6 @@ $medidaTicket = 180;
 
 <body>
     <div class="ticket centrado">
-        <h1>Tech Perú</h1>
         <h1>{{$empresa->nombre}}</h1>
         <p>RU: {{$empresa->nro_documento}} <br>
         {{$empresa->direccion}} <br>

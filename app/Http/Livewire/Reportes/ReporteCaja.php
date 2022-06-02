@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Reportes;
 
 use App\Exports\ReporteCaja as ExportsReporteCaja;
 use App\Exports\ReporteCajaExport;
+use App\Models\Empresa;
 use App\Models\MovimientoCaja;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -17,7 +18,7 @@ class ReporteCaja extends Component
     protected $paginationTheme = "bootstrap";
 
 
-    public $fecha_inicio, $fecha_fin, $sucursal_id;
+    public $fecha_inicio, $fecha_fin, $sucursal_id, $empresa;
 
     public function render()
     {
@@ -70,7 +71,7 @@ class ReporteCaja extends Component
 
         $fecha_inicioo = date("Y-m-d",strtotime($this->fecha_inicio));
         $fecha_finn = date("Y-m-d",strtotime($this->fecha_fin));
-
+        $this->empresa = Empresa::first();
         $sucursal = $this->sucursal_id;
 
         if($sucursal == 0){
@@ -90,7 +91,8 @@ class ReporteCaja extends Component
         $data = [
             'movimientos' => $movimientos,
             'fecha_inicio' => $fecha_inicioo,
-            'fecha_fin' => $fecha_finn,     
+            'fecha_fin' => $fecha_finn,  
+            'empresa' => $this->empresa,   
         ];
 
        $pdf = PDF::loadView('reportes.exportPdfCaja',$data)->output();
