@@ -33,14 +33,23 @@ class SucursalIndex extends Component
     
     public function delete($sucursalId){
         $this->sucursal = $sucursalId;
-        $busqueda = Producto_sucursal::where('sucursal_id',$sucursalId)->first();
+        $busqueda = Producto_sucursal::where('sucursal_id',$sucursalId)->get();
+        $cant = 0;
+        foreach($busqueda as $i){
+            if($i->cantidad > 0){
+                $cant++;
+                break;
+            } 
+        }
 
-        if($busqueda) $this->emit('errorSize', 'Esta sucursal esta asociada a un producto, no puede eliminarlo');
+        if($cant > 0) $this->emit('errorSize', 'Esta sucursal esta asociada a un producto, no puede eliminarlo');
         else $this->emit('confirm', 'Esta seguro de eliminar esta susucrsal?','admin.sucursales.sucursal-index','confirmacion','La sucursal se ha eliminado.');
     }
     public function confirmacion(){
         $sucursal_destroy = Sucursal::where('id',$this->sucursal)->first();
-        $sucursal_destroy->delete();
+        $sucursal_destroy->update([
+            'status' => 0,
+        ]);
         $this->resetPage();
     }
 

@@ -68,6 +68,10 @@
                                 
                             </div>
                         </div>
+                        <div class="flex w-full h-full mt-3 ml-2">
+                            <input type="checkbox" class=" mt-1" wire:model="status" value="1">
+                            <p class="text-md font-semibold text-green-800 ml-2">Habilitar</p>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" wire:click="close">Cerrar</button>

@@ -251,7 +251,7 @@
                     <div class="text-gray-700">
                         <p class="flex justify-between items-center">
                             Total parcial
-                            <span class="font-semibold">S/ {{Cart::subtotal()}}</span>
+                            <span class="font-semibold">S/ {{$subtotal}}</span>
                         </p>
                         <p class="flex justify-between items-center">
                             Descuento
@@ -270,7 +270,7 @@
                             {{-- @if ($canjeo == false)
                             <span class="font-semibold">S/ {{Cart::subtotal() - (Cart::subtotal() * ($this->descuento / 100))}}</span>
                             @else --}}
-                            <span class="font-semibold">S/ {{Cart::subtotal() - $descuento_total}}</span>
+                            <span class="font-semibold">S/ {{$subtotal - $descuento_total}}</span>
                         {{-- @endif --}}
                         </p>
                         {{-- <p class="flex justify-between items-center">

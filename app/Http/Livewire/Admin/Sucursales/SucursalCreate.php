@@ -11,7 +11,7 @@ class SucursalCreate extends Component
 {
 
     public $estado_id ="",$ciudad_id ="";
-    public $nombre, $telefono, $ciudades, $direccion, $estados;
+    public $nombre, $telefono, $ciudades, $direccion, $estados, $status;
     public $isopen = false;
     public $accion, $sucursal;
 
@@ -21,6 +21,7 @@ class SucursalCreate extends Component
         'nombre' => 'required|max:50',
         'direccion' => 'required|max:50',
         'telefono' => 'required|min:5',
+        'status' => 'required'
     ];
 
    /* public function updatedCiudadId($value)
@@ -49,6 +50,7 @@ class SucursalCreate extends Component
             $this->direccion = $this->sucursal->direccion;
             $this->ciudad_id = $this->sucursal->ciudad_id;
             $this->estado_id = $this->sucursal->estado_id;
+            $this->status = $this->sucursal->status;
         }
        
         $this->estados=Estado::all();
@@ -82,9 +84,10 @@ class SucursalCreate extends Component
             $sucursal->telefono = $this->telefono;
             $sucursal->ciudad_id = $this->ciudad_id;
             $sucursal->estado_id = $this->estado_id;
+            $sucursal->status = $this->status;
             $sucursal->save();
 
-            $this->reset(['nombre','telefono','direccion','ciudad_id','estado_id','isopen']);
+            $this->reset(['nombre','telefono','direccion','ciudad_id','estado_id','isopen','status']);
             $this->emitTo('admin.sucursales.sucursal-index','render');
 
             $this->emit('alert','Sucursal creada correctamente');
@@ -97,6 +100,7 @@ class SucursalCreate extends Component
                 'telefono' => $this->telefono,
                 'ciudad_id' => $this->ciudad_id,
                 'estado_id' => $this->estado_id,
+                'status' => $this->status,
             ]);
             $this->reset(['isopen']);
             $this->emitTo('admin.sucursales.sucursal-index','render');

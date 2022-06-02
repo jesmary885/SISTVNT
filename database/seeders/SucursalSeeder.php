@@ -22,6 +22,7 @@ class SucursalSeeder extends Seeder
                'estado_id' => '1',
                'ciudad_id' => '1',
                'saldo' => '0',
+               'status' => '1',
             ],
             [
                 'nombre' => 'Tienda Lima 1',
@@ -30,6 +31,7 @@ class SucursalSeeder extends Seeder
                'estado_id' => '1',
                'ciudad_id' => '1',
                'saldo' => '0',
+               'status' => '1',
              ],
              [
                 'nombre' => 'Movox',
@@ -38,6 +40,7 @@ class SucursalSeeder extends Seeder
                'estado_id' => '1',
                'ciudad_id' => '1',
                'saldo' => '0',
+               'status' => '1',
              ],
             ];
 
